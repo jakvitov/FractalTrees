@@ -31,9 +31,9 @@ var drawTree = function () {
     console.log("Started drawing tree.");
     var context = setupCanvas();
     var startCoord = { x: WIDTH / 2, y: HEIGHT };
-    var treeState = { ratio: 0.5, theta: Math.PI / 3 };
+    var treeState = { ratio: 0.7, theta: Math.PI / 8 };
     context.beginPath();
-    drawBranch(startCoord, treeState, Math.PI, 300, 0, 4, context);
+    drawBranch(startCoord, treeState, Math.PI, 300, 0, 8, context);
     context.stroke();
 };
 document.getElementById("drawButton").addEventListener("click", function () { return drawTree(); });

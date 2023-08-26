@@ -53,7 +53,7 @@ const drawTree = () => {
     let startCoord : Coord = { x : WIDTH/2, y : HEIGHT};
     const treeState : TreeState = {ratio : 0.5, theta : Math.PI/3};
     context.beginPath();
-    drawBranch(startCoord, treeState, Math.PI, 300, 0, 4, context);
+    drawBranch(startCoord, treeState, Math.PI, 300, 0, 8, context);
     context.stroke();
 }
 
