@@ -22,8 +22,8 @@ var drawBranch = function (from, state, sigma, length, iterations, limit, contex
     context.lineTo(end.x, end.y);
     if (iterations < limit) {
         //Recursive call for the left and right branches of the tree to come
-        drawBranch(end, state, (sigma + state.theta / 2) % 360, length * state.ratio, iterations, limit, context);
-        drawBranch(end, state, (sigma - state.theta / 2) % 360, length * state.ratio, iterations, limit, context);
+        drawBranch(end, state, (sigma + state.theta / 2) % (2 * Math.PI), length * state.ratio, iterations, limit, context);
+        drawBranch(end, state, (sigma - state.theta / 2) % (2 * Math.PI), length * state.ratio, iterations, limit, context);
     }
     return;
 };
@@ -31,9 +31,9 @@ var drawTree = function () {
     console.log("Started drawing tree.");
     var context = setupCanvas();
     var startCoord = { x: WIDTH / 2, y: HEIGHT };
-    var treeState = { ratio: 0.5, theta: 30 };
+    var treeState = { ratio: 0.5, theta: Math.PI / 3 };
     context.beginPath();
-    drawBranch(startCoord, treeState, 90, 300, 0, 4, context);
+    drawBranch(startCoord, treeState, Math.PI, 300, 0, 4, context);
     context.stroke();
 };
 document.getElementById("drawButton").addEventListener("click", function () { return drawTree(); });

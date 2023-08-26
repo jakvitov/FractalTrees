@@ -41,8 +41,8 @@ const drawBranch = (from : Coord, state : TreeState, sigma : number, length : nu
     
     if (iterations < limit){
         //Recursive call for the left and right branches of the tree to come
-        drawBranch(end, state, (sigma + state.theta/2) % 360, length * state.ratio, iterations, limit, context);
-        drawBranch(end, state, (sigma - state.theta/2) % 360, length * state.ratio, iterations, limit, context);
+        drawBranch(end, state, (sigma + state.theta/2) % (2 * Math.PI), length * state.ratio, iterations, limit, context);
+        drawBranch(end, state, (sigma - state.theta/2) % (2 * Math.PI), length * state.ratio, iterations, limit, context);
     }
     return;
 }
@@ -51,9 +51,9 @@ const drawTree = () => {
     console.log("Started drawing tree.");
     const context : any = setupCanvas();
     let startCoord : Coord = { x : WIDTH/2, y : HEIGHT};
-    const treeState : TreeState = {ratio : 0.5, theta : 30};
+    const treeState : TreeState = {ratio : 0.5, theta : Math.PI/3};
     context.beginPath();
-    drawBranch(startCoord, treeState, 90, 300, 0, 4, context);
+    drawBranch(startCoord, treeState, Math.PI, 300, 0, 4, context);
     context.stroke();
 }
 
