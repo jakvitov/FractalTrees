@@ -1,11 +1,9 @@
-const WIDTH : number = 700;
-const HEIGHT : number= 700;
-
+let sideSize : number = 700;
 let ratio : number = 0.75;
 let iterations : number = 6;
 //Initial value approx. 2*PI / 11
 let angle : number = 0.571198664;
-let branchSize : number = 200;
+let branchSize : number = 150;
 
 /**
  * We solve the fractal tree problem by recursive way of drawing the branches and transforming the angle and length of them.
@@ -27,7 +25,7 @@ interface TreeState {
 const setupCanvas = () : any => {
     const canvas : any= document.getElementById("drawBoard");
     const ctx : any= canvas.getContext("2d");
-    ctx.clearRect(0, 0, WIDTH, HEIGHT);
+    ctx.clearRect(0, 0, sideSize, sideSize);
     return ctx; 
 }
 
@@ -71,7 +69,7 @@ const drawTree = () : void => {
     console.log("Started drawing tree.");
     const context : any = setupCanvas();
     //We start at the bottom-middle of the screen
-    let startCoord : Coord = { x : WIDTH/2, y : HEIGHT};
+    let startCoord : Coord = { x : sideSize/2, y : sideSize};
     
     //State of the tree transformation
     const treeState : TreeState = {ratio : ratio, theta : angle};
@@ -94,4 +92,10 @@ document.getElementById("angleInput").addEventListener("input", (ev) => {
 
 document.getElementById("branchSize").addEventListener("input", (ev) => {
     branchSize = parseInt((ev.target as HTMLInputElement).value);
+})
+
+document.getElementById("canvasSize").addEventListener("input", (ev) => {
+    sideSize = parseInt((ev.target as HTMLInputElement).value);
+    document.getElementById("drawBoard").setAttribute("heigth", sideSize.toString());
+    document.getElementById("drawBoard").setAttribute("width", sideSize.toString());
 })

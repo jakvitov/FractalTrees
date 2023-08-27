@@ -1,14 +1,13 @@
-var WIDTH = 700;
-var HEIGHT = 700;
+var sideSize = 700;
 var ratio = 0.75;
 var iterations = 6;
 //Initial value approx. 2*PI / 11
 var angle = 0.571198664;
-var branchSize = 200;
+var branchSize = 150;
 var setupCanvas = function () {
     var canvas = document.getElementById("drawBoard");
     var ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, WIDTH, HEIGHT);
+    ctx.clearRect(0, 0, sideSize, sideSize);
     return ctx;
 };
 //Because we have the polar angle in (PI-sigma)rad form, our classic formula of 
@@ -45,7 +44,7 @@ var drawTree = function () {
     console.log("Started drawing tree.");
     var context = setupCanvas();
     //We start at the bottom-middle of the screen
-    var startCoord = { x: WIDTH / 2, y: HEIGHT };
+    var startCoord = { x: sideSize / 2, y: sideSize };
     //State of the tree transformation
     var treeState = { ratio: ratio, theta: angle };
     drawBranch(startCoord, treeState, Math.PI, branchSize, 0, iterations, context);
@@ -62,4 +61,9 @@ document.getElementById("angleInput").addEventListener("input", function (ev) {
 });
 document.getElementById("branchSize").addEventListener("input", function (ev) {
     branchSize = parseInt(ev.target.value);
+});
+document.getElementById("canvasSize").addEventListener("input", function (ev) {
+    sideSize = parseInt(ev.target.value);
+    document.getElementById("drawBoard").setAttribute("heigth", sideSize.toString());
+    document.getElementById("drawBoard").setAttribute("width", sideSize.toString());
 });
