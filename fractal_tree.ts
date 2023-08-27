@@ -96,6 +96,6 @@ document.getElementById("branchSize").addEventListener("input", (ev) => {
 
 document.getElementById("canvasSize").addEventListener("input", (ev) => {
     sideSize = parseInt((ev.target as HTMLInputElement).value);
-    document.getElementById("drawBoard").setAttribute("heigth", sideSize.toString());
+    document.getElementById("drawBoard").setAttribute("height", sideSize.toString());
     document.getElementById("drawBoard").setAttribute("width", sideSize.toString());
 })

@@ -8,18 +8,27 @@ body {
     background-color: #f0f0f0;
 }
 
-.options {
+#options {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    padding: 20px;
+    align-items: center;
     width: 100%;
     box-sizing: border-box;
-    background-color: #ffffff;
 }
 
 #drawButton {
     margin: 10px;
+}
+
+label {
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+input {
+    padding-right: 10px;
+    margin-right: 10px;
+
 }
 
 canvas {

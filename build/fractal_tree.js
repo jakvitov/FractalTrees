@@ -64,6 +64,6 @@ document.getElementById("branchSize").addEventListener("input", function (ev) {
 });
 document.getElementById("canvasSize").addEventListener("input", function (ev) {
     sideSize = parseInt(ev.target.value);
-    document.getElementById("drawBoard").setAttribute("heigth", sideSize.toString());
+    document.getElementById("drawBoard").setAttribute("height", sideSize.toString());
     document.getElementById("drawBoard").setAttribute("width", sideSize.toString());
 });
