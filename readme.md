@@ -1,6 +1,8 @@
 # Fractal tree generator
 This mini project is a fractal canopy generator written in TypeScript.
 
+![Example render](https://github.com/jakvitov/fractal_canopy/blob/main/image.png)
+
 ## About fractal trees
 Fractal tree is a type of fractal, created by splitting line segments into smaller segments at their ends. Trough the process, we decrease their length by a constant and keep the same angle between them. You can read more about them on [Wikipedia](https://en.wikipedia.org/wiki/Fractal_canopy).
 
